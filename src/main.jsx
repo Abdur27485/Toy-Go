@@ -9,6 +9,7 @@ import AuthProvider from './providers/AuthProvider';
 import Home from './pages/Home/Home';
 import AddToy from './pages/Add Toy/AddToy';
 import AllToy from './pages/All Toy/AllToy';
+import NotFound from './pages/Not Found/NotFound';
 
 const routes = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const routes = createBrowserRouter([
         element: <AllToy></AllToy>,
       }
     ]
+  },
+  {
+    path: '*',
+    element: <NotFound></NotFound>
   }
 ])
 
