@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import {FcGoogle} from 'react-icons/fc'
 
 const Register = () => {
     const { createUser, setUser, updateUser } = useContext(AuthContext);
@@ -46,7 +47,7 @@ const Register = () => {
         })
     }
     return (
-        <div className='lg:w-9/12 mx-auto shadow-2xl mt-8'>
+        <div className='lg:w-9/12 mx-auto shadow-2xl'>
             <section className="bg-white">
                 <div className="lg:grid lg:grid-cols-12">
                     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
@@ -73,7 +74,7 @@ const Register = () => {
 
                     <main
                         aria-label="Main"
-                        className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
+                        className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-10 lg:py-12 xl:col-span-6"
                     >
                         <div className="max-w-xl lg:max-w-3xl">
                             <h1 className='text-4xl font-bold text-center'>Register</h1>
@@ -95,7 +96,7 @@ const Register = () => {
                                     We have a wide variety of toy cars for kids of all ages, from classic cars to modern sports cars. Whether your child is a car enthusiast or just loves to play, we have the perfect toy car for them.
                                 </p>
 
-                                <h1 className='text-2xl font-bold text-center mt-5'>Register</h1>
+                                <h1 className='text-2xl font-bold text-center'>Register</h1>
                             </div>
 
                             <form onSubmit={handleRegister} className="mt-8 grid grid-cols-6 gap-6">
@@ -133,7 +134,7 @@ const Register = () => {
                                     />
                                 </div>
 
-                                <div className="col-span-6">
+                                <div className="col-span-6 sm:col-span-3">
                                     <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
                                         Email
                                     </label>
@@ -147,7 +148,7 @@ const Register = () => {
                                     />
                                 </div>
 
-                                <div className="col-span-6">
+                                <div className="col-span-6 sm:col-span-3">
                                     <label
                                         htmlFor="photoUrl"
                                         className="block text-sm font-medium text-gray-700"
@@ -206,32 +207,6 @@ const Register = () => {
                                     }
                                 </div>
 
-                                <div className="col-span-6">
-                                    <label htmlFor="MarketingAccept" className="flex gap-4">
-                                        <input
-                                            type="checkbox"
-                                            id="MarketingAccept"
-                                            name="marketing_accept"
-                                            className="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
-                                        />
-
-                                        <span className="text-sm text-gray-700">
-                                            I want to receive emails about new products and blogs.
-                                        </span>
-                                    </label>
-                                </div>
-
-                                <div className="col-span-6">
-                                    <p className="text-sm text-gray-500">
-                                        By creating an account, you agree to our
-                                        <a href="#" className="text-gray-700 underline px-1">
-                                            terms and conditions
-                                        </a>
-                                        and
-                                        <a href="#" className="text-gray-700 underline pl-1">privacy policy</a>.
-                                    </p>
-                                </div>
-
                                 <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                                     <button
                                         className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
@@ -246,6 +221,17 @@ const Register = () => {
                                     </p>
                                 </div>
                             </form>
+                            {/* google login */}
+                            <hr className='my-8' />
+                                <div className='flex justify-center w-1/2 mx-auto'>
+                                    <button 
+                                    className='flex items-center gap-7 shrink-0 rounded-md border border-blue-600 px-12 py-3 font-medium text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring active:text-blue-500 text-xl'>
+                                        <span className='text-3xl'>
+                                        <FcGoogle />
+                                        </span>
+                                        Sign in with Google
+                                        </button>
+                                </div>
                         </div>
                     </main>
                 </div>
