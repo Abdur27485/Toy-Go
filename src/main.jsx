@@ -7,6 +7,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import AuthProvider from './providers/AuthProvider';
 import Home from './pages/Home/Home';
+import AddToy from './pages/Add Toy/AddToy';
 
 const routes = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const routes = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/addToy',
+        element: <AddToy></AddToy>
       }
     ]
   }

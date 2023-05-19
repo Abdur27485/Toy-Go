@@ -49,7 +49,7 @@ const Navbar = () => {
                                 <Link to='' className={linkStyle}>
                                     My Toys
                                 </Link>
-                                <Link to='' className={linkStyle}>
+                                <Link to='/addToy' className={linkStyle}>
                                     Add A Toy
                                 </Link>
                             </>
