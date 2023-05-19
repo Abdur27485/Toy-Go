@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { AuthContext } from '../../providers/AuthProvider';
-import app from '../../firebase/firebase.config'
+import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -154,6 +154,18 @@ const Login = () => {
                                     </p>
                                 </div>
                             </form>
+                            {/* google sign in here */}
+                            <hr className='my-8' />
+                            <div className='flex justify-center w-1/2 mx-auto'>
+                                <button
+                                    className='flex items-center gap-7 shrink-0 rounded-md border border-blue-600 px-12 py-3 font-medium text-blue-600
+                                     hover:bg-blue-50 focus:outline-none focus:ring active:text-blue-500 text-xl'>
+                                    <span className='text-3xl'>
+                                        <FcGoogle />
+                                    </span>
+                                    Sign in with Google
+                                </button>
+                            </div>
                         </div>
                     </main>
                 </div>
