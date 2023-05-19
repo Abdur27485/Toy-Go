@@ -17,12 +17,19 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     };
 
-    const updateUser = (displayName, photoURL) =>{
-        return updateProfile( auth.currentUser, {displayName, photoURL});
+    const updateUser = (displayName, photoURL) => {
+        return updateProfile(auth.currentUser, { displayName, photoURL });
     };
 
-    const googleSignIn = () =>{
-        return signInWithPopup(auth, googleProvider);
+    const googleSignIn = () => {
+        return signInWithPopup(auth, googleProvider)
+            .then(result => {
+                Swal.fire(
+                    'Logged in!',
+                    'You have successfully Logged in',
+                    'success'
+                )
+            })
     }
     const data = {
         auth,
@@ -35,15 +42,15 @@ const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged( auth, (currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             console.log('AuthState changed!', currentUser)
         })
 
         return () => {
-           return unsubscribe();
+            return unsubscribe();
         }
-    },[user])
+    }, [user])
     return (
         <AuthContext.Provider value={data}>
             {children}

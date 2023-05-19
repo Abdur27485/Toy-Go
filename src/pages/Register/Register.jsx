@@ -4,8 +4,13 @@ import { Link } from 'react-router-dom';
 import {FcGoogle} from 'react-icons/fc'
 
 const Register = () => {
-    const { createUser, setUser, updateUser } = useContext(AuthContext);
+    const { createUser, setUser, updateUser, googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
+
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+    }
+
     const handleRegister = event => {
         event.preventDefault()
 
@@ -42,7 +47,6 @@ const Register = () => {
             updateUser(displayName, photoURL)
             .then(() =>{
                 console.log('profile updated')
-                setUser(user);
             })
         })
     }
@@ -225,6 +229,7 @@ const Register = () => {
                             <hr className='my-8' />
                                 <div className='flex justify-center w-1/2 mx-auto'>
                                     <button 
+                                    onClick={handleGoogleSignIn}
                                     className='flex items-center gap-7 shrink-0 rounded-md border border-blue-600 px-12 py-3 font-medium text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring active:text-blue-500 text-xl'>
                                         <span className='text-3xl'>
                                         <FcGoogle />
