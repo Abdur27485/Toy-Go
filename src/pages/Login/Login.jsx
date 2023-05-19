@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Login = () => {
+    const {changeTitle} = useContext(AuthContext);
+    changeTitle('Login')
     const { loginUser,googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
 

@@ -31,6 +31,13 @@ const AuthProvider = ({ children }) => {
                 )
             })
     }
+
+    const changeTitle = title => {
+        useEffect(() => {
+            document.title = `ToyGo | ${title}`
+        }, [title])
+    }
+
     const data = {
         auth,
         user,
@@ -39,6 +46,7 @@ const AuthProvider = ({ children }) => {
         setUser,
         updateUser,
         googleSignIn,
+        changeTitle,
     }
 
     useEffect(() => {
@@ -50,7 +58,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             return unsubscribe();
         }
-    }, [user])
+    }, [])
     return (
         <AuthContext.Provider value={data}>
             {children}

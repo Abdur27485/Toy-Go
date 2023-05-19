@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import {FcGoogle} from 'react-icons/fc'
 
 const Register = () => {
+    const {changeTitle} = useContext(AuthContext);
+    changeTitle('Register')
     const { createUser, setUser, updateUser, googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
 
