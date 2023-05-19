@@ -3,7 +3,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-    const { createUser, setUser } = useContext(AuthContext);
+    const { createUser, setUser, updateUser } = useContext(AuthContext);
     const [error, setError] = useState('');
     const handleRegister = event => {
         event.preventDefault()
@@ -13,10 +13,13 @@ const Register = () => {
         const form = event.target;
         const firstName = form.firstName.value;
         const lastName = form.lastName.value;
+        const displayName = firstName + ' ' + lastName;
         const email = form.email.value;
+        const photoURL = form.photoUrl.value;
         const password = form.password.value;
         const PasswordConfirmation = form.PasswordConfirmation.value;
         // console.log(firstName, lastName, email, password, PasswordConfirmation)
+        console.log(displayName, photoURL)
 
         if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
             setError('Password should contain at least two uppercase letters.')
@@ -35,6 +38,10 @@ const Register = () => {
         .then( result =>{
             const user = result.user;
             setUser(user);
+            updateUser(displayName, photoURL)
+            .then(() =>{
+                console.log('profile updated')
+            })
         })
     }
     return (
@@ -134,6 +141,23 @@ const Register = () => {
                                         type="email"
                                         id="Email"
                                         name="email"
+                                        className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                                        required
+                                    />
+                                </div>
+
+                                <div className="col-span-6">
+                                    <label
+                                        htmlFor="photoUrl"
+                                        className="block text-sm font-medium text-gray-700"
+                                    >
+                                        Photo Url
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="photUrl"
+                                        name="photoUrl"
                                         className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                                         required
                                     />
