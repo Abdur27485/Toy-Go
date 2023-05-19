@@ -37,10 +37,11 @@ const Register = () => {
         createUser(email, password)
         .then( result =>{
             const user = result.user;
-            setUser(user);
+        }).then( () =>{
             updateUser(displayName, photoURL)
             .then(() =>{
                 console.log('profile updated')
+                setUser(user);
             })
         })
     }

@@ -2,10 +2,22 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi'
 import { AuthContext } from '../../providers/AuthProvider';
+import { signOut } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, auth } = useContext(AuthContext);
     const linkStyle = 'block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700';
+
+    const handleLogOut = () =>{
+        signOut(auth).then( () =>{
+            Swal.fire(
+                'Logged Out',
+                'User Logged Out successfully',
+                'success'
+            )
+        })
+    }
 
     return (
         <header aria-label="Site Header" className="border-b border-gray-100">
@@ -31,12 +43,17 @@ const Navbar = () => {
                         <Link to='' className={linkStyle}>
                             All Toys
                         </Link>
-                        <Link to='' className={linkStyle}>
-                            My Toys
-                        </Link>
-                        <Link to='' className={linkStyle}>
-                            Add A Toy
-                        </Link>
+                        {
+                            user &&
+                            <>
+                                <Link to='' className={linkStyle}>
+                                    My Toys
+                                </Link>
+                                <Link to='' className={linkStyle}>
+                                    Add A Toy
+                                </Link>
+                            </>
+                        }
                         <Link to='' className={linkStyle}>
                             Blogs
                         </Link>
@@ -44,10 +61,13 @@ const Navbar = () => {
 
                     <div className="flex items-center">
                         <div className="flex items-center border-x border-gray-100">
-                            <span className="border-e border-e-gray-100">
+                            <span className="border-e border-e-gray-100 flex items-center">
                                 {
                                     user ?
-                                        <p>{user.email}</p>
+                                        <>
+                                        <img src={user?.photoURL} className=' w-14 rounded-full mx-4' />
+                                        <button className='btn mr-4' onClick={handleLogOut}>Log Out</button>
+                                        </>
                                         :
                                         <Link to='/login' className="grid h-16 w-24 place-content-center border-b-4 border-transparent hover:border-red-700">
                                             <span className='flex items-center gap-1'>

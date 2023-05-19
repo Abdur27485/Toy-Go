@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
     };
 
     const updateUser = (displayName, photoURL) =>{
-        return updateProfile( user, {displayName, photoURL});
+        return updateProfile( auth.currentUser, {displayName, photoURL});
     };
     const data = {
         auth,
@@ -37,7 +37,7 @@ const AuthProvider = ({ children }) => {
         return () => {
            return unsubscribe();
         }
-    },[])
+    },[user])
     return (
         <AuthContext.Provider value={data}>
             {children}
