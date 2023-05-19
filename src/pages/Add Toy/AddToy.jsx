@@ -10,7 +10,7 @@ const AddToy = () => {
         event.preventDefault();
 
         const form = event.target;
-        const toyName = form.toyName
+        const toyName = form.toyName.value;
         const sellerName = form.sellerName.value;
         const toyPictureUrl = form.toyPictureUrl.value;
         const sellerEmail = form.sellerEmail.value;
@@ -18,20 +18,22 @@ const AddToy = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         const availableQuantity = form.availableQuantity.value;
-        const description = form.description;
+        const description = form.description.value;
 
         const newToyData = {
-            toyName,
-            sellerName,
-            toyPictureUrl,
-            sellerEmail,
-            subCategory,
-            price,
-            rating,
-            availableQuantity,
-            description
+            toyName, sellerName, toyPictureUrl, sellerEmail, subCategory, price, rating, availableQuantity, description
         }
         console.log(newToyData)
+
+        fetch('http://localhost:27485/toy', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newToyData)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
 
     return (
@@ -40,55 +42,55 @@ const AddToy = () => {
             <div className='mx-5 lg:w-9/12 lg:mx-auto'>
                 <form onSubmit={handleAddNewToy} className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
                     <label className={formLabel}>
-                        <input type="text" name='toyName'  className={formInput} />
+                        <input type="text" name='toyName' className={formInput} />
                         <span className={formSpan}>
                             Toy Name
                         </span>
                     </label>
                     <label className={formLabel}>
-                        <input type="text" name='sellerName'  className={formInput} />
+                        <input type="text" name='sellerName' className={formInput} />
                         <span className={formSpan}>
                             Seller Name
                         </span>
                     </label>
                     <label className={formLabel}>
-                        <input type="text" name='toyPictureUrl'  className={formInput} />
+                        <input type="text" name='toyPictureUrl' className={formInput} />
                         <span className={formSpan}>
                             Toy Picture Url
                         </span>
                     </label>
                     <label className={formLabel}>
-                        <input type="text" name='sellerEmail'  className={formInput} />
+                        <input type="text" name='sellerEmail' className={formInput} />
                         <span className={formSpan}>
                             Seller Email
                         </span>
                     </label>
                     <label className={formLabel}>
-                        <input type="text" name='subCategory'  className={formInput} />
+                        <input type="text" name='subCategory' className={formInput} />
                         <span className={formSpan}>
                             Sub Category
                         </span>
                     </label>
                     <label className={formLabel}>
-                        <input type="text" name='price'  className={formInput} />
+                        <input type="text" name='price' className={formInput} />
                         <span className={formSpan}>
                             Price
                         </span>
                     </label>
                     <label className={formLabel}>
-                        <input type="text" name='rating'  className={formInput} />
+                        <input type="text" name='rating' className={formInput} />
                         <span className={formSpan}>
                             Rating
                         </span>
                     </label>
                     <label className={formLabel}>
-                        <input type="text" name='availableQuantity'  className={formInput} />
+                        <input type="text" name='availableQuantity' className={formInput} />
                         <span className={formSpan}>
                             Available Quantity
                         </span>
                     </label>
                     <label className={`${formLabel} col-span-2`}>
-                        <input type="text" name='description'  className={formInput} />
+                        <input type="text" name='description' className={formInput} />
                         <span className={formSpan}>
                             Toy Description
                         </span>
