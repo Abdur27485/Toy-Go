@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi'
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext);
     const linkStyle = 'block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700';
 
     return (
@@ -43,12 +45,17 @@ const Navbar = () => {
                     <div className="flex items-center">
                         <div className="flex items-center border-x border-gray-100">
                             <span className="border-e border-e-gray-100">
-                                <Link to='/login' className="grid h-16 w-24 place-content-center border-b-4 border-transparent hover:border-red-700">
-                                    <span className='flex items-center gap-1'>
-                                        Login
-                                        <FiLogIn />
-                                    </span>
-                                </Link>
+                                {
+                                    user ?
+                                        <p>{user.email}</p>
+                                        :
+                                        <Link to='/login' className="grid h-16 w-24 place-content-center border-b-4 border-transparent hover:border-red-700">
+                                            <span className='flex items-center gap-1'>
+                                                Login
+                                                <FiLogIn />
+                                            </span>
+                                        </Link>
+                                }
                             </span>
                         </div>
                     </div>
