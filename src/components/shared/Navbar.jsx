@@ -9,8 +9,8 @@ const Navbar = () => {
     const { user, auth } = useContext(AuthContext);
     const linkStyle = 'block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700';
 
-    const handleLogOut = () =>{
-        signOut(auth).then( () =>{
+    const handleLogOut = () => {
+        signOut(auth).then(() => {
             Swal.fire(
                 'Logged Out',
                 'User Logged Out successfully',
@@ -60,13 +60,15 @@ const Navbar = () => {
                     </nav>
 
                     <div className="flex items-center">
-                        <div className="flex items-center border-x border-gray-100">
+                        <div className="flex items-center px-4 border-x border-gray-100">
                             <span className="border-e border-e-gray-100 flex items-center">
                                 {
                                     user ?
                                         <>
-                                        <img src={user?.photoURL} className=' w-14 rounded-full mx-4' />
-                                        <button className='btn mr-4' onClick={handleLogOut}>Log Out</button>
+                                            <div className='tooltip tooltip-left rounded-full' data-tip={user.displayName}>
+                                                <img src={user?.photoURL} className=' w-14 rounded-full' />
+                                            </div>
+                                            <button className='btn ml-4' onClick={handleLogOut}>Log Out</button>
                                         </>
                                         :
                                         <Link to='/login' className="grid h-16 w-24 place-content-center border-b-4 border-transparent hover:border-red-700">
