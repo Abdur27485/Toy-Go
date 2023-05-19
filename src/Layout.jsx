@@ -1,11 +1,12 @@
 import React from 'react';
+import Navbar from './components/shared/Navbar';
+import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
     return (
         <div>
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>
+            <Navbar />
+            <Outlet></Outlet>
         </div>
     );
 };
