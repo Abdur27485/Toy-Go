@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* add toy sub-category dropdown */
+.css-13cymwt-control{
+    padding: 4px;
+}

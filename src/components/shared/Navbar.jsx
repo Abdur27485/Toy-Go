@@ -46,7 +46,7 @@ const Navbar = () => {
                         {
                             user &&
                             <>
-                                <Link to='' className={linkStyle}>
+                                <Link to='/myToy' className={linkStyle}>
                                     My Toys
                                 </Link>
                                 <Link to='/addToy' className={linkStyle}>

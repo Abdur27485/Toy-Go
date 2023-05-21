@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToy = () => {
-    const {changeTitle} = useContext(AuthContext);
+    const { changeTitle, user } = useContext(AuthContext);
     changeTitle('Add Toy')
     // tailwind classe variables
     const formLabel = 'relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600';
@@ -36,7 +37,15 @@ const AddToy = () => {
             body: JSON.stringify(newToyData)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if(data.insertedId){
+                    Swal.fire(
+                        'success',
+                        'Added A New Toy',
+                        'success'
+                    )
+                }
+            })
     }
 
     return (
@@ -51,7 +60,7 @@ const AddToy = () => {
                         </span>
                     </label>
                     <label className={formLabel}>
-                        <input type="text" name='sellerName' className={formInput} />
+                        <input type="text" name='sellerName' className={formInput} defaultValue={user?.displayName} />
                         <span className={formSpan}>
                             Seller Name
                         </span>
@@ -63,7 +72,7 @@ const AddToy = () => {
                         </span>
                     </label>
                     <label className={formLabel}>
-                        <input type="text" name='sellerEmail' className={formInput} />
+                        <input type="text" name='sellerEmail' className={formInput} defaultValue={user?.email} />
                         <span className={formSpan}>
                             Seller Email
                         </span>
