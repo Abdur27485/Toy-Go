@@ -8,7 +8,7 @@ const AllToy = () => {
     const [allToys, setAllToys] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:27485/toy')
+        fetch('https://assignment-11-server-production-8607.up.railway.app/toy')
             .then(res => res.json())
             .then(data => setAllToys(data))
     }, [])

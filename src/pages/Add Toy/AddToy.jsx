@@ -29,7 +29,7 @@ const AddToy = () => {
         }
         console.log(newToyData)
 
-        fetch('http://localhost:27485/toy', {
+        fetch('https://assignment-11-server-production-8607.up.railway.app/toy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
