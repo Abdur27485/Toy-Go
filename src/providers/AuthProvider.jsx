@@ -39,9 +39,18 @@ const AuthProvider = ({ children }) => {
         }, [title])
     }
 
+    //loading allToys data
+    const [allToys, setAllToys] = useState(null);
+    useEffect(() => {
+        fetch('https://assignment-11-server-production-8607.up.railway.app/toy')
+            .then(res => res.json())
+            .then(data => setAllToys(data))
+    }, [])
+
     const data = {
         auth,
         user,
+        allToys,
         createUser,
         loginUser,
         setUser,
@@ -60,6 +69,7 @@ const AuthProvider = ({ children }) => {
             return unsubscribe();
         }
     }, [])
+
     return (
         <AuthContext.Provider value={data}>
             {children}

@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../providers/AuthProvider';
 
 const Gallery = () => {
-    const [gallerCardData, setGalleryCardData] = useState(null);
+    // const [gallerCardData, setGalleryCardData] = useState(null);
 
-    useEffect(() => {
-        fetch('https://assignment-11-server-production-8607.up.railway.app/toy')
-            .then(res => res.json())
-            .then(data => setGalleryCardData(data.slice(0, 6)))
-    }, [])
+    // useEffect(() => {
+    //     fetch('https://assignment-11-server-production-8607.up.railway.app/toy')
+    //         .then(res => res.json())
+    //         .then(data => setGalleryCardData(data.slice(7, 13)))
+    // }, [])
+    const {allToys} = useContext(AuthContext);
     return (
         <div className='lg:px-8'>
             <h2 className='inline-block font-semibold text-2xl lg:text-5xl px-3'>
@@ -17,14 +19,14 @@ const Gallery = () => {
             <p className='lg:text-xl mt-2 pl-3 pr-3'>We have a wide selection of toys to choose from, so you're sure to find something your child will love</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-y-3 lg:gap-8 mt-10'>
                 {
-                    gallerCardData?.map(galleryData => {
+                    allToys?.slice(7,13)?.map(galleryData => {
                         const { toyPictureUrl, toyName, price } = galleryData;
                         return (
                             <div className='overflow-hidden rounded mx-2 lg:mx-0'>
                                 <a href="#" class="relative block group">
                                     <img
                                         src={toyPictureUrl}
-                                        class="bg-slate-100 h-[350px] lg:h-[450px] w-full object-cover transition duration-75 group-hover:opacity-90 lg:group-hover:scale-105"
+                                        class="bg-slate-100 pb-28 pt-5 h-[350px] lg:h-[450px] w-full object-cover transition duration-75 lg:group-hover:scale-105"
                                     />
                                     <div class="absolute bottom-0 w-full px-6 py-3 bg-slate-100">
                                         <h3 class="text-2xl font-medium">{toyName}</h3>
