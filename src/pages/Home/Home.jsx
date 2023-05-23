@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Banner from '../../components/Banner';
-import ImgGallery from '../../components/ImgGallery';
 import { AuthContext } from '../../providers/AuthProvider';
+import Gallery from '../../components/Gallery';
 
 const Home = () => {
     const {changeTitle} = useContext(AuthContext);
@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <ImgGallery></ImgGallery>
+            <Gallery></Gallery>
         </div>
     );
 };
