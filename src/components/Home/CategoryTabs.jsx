@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { AuthContext } from '../providers/AuthProvider';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const CategoryTabs = () => {
     const { allToys } = useContext(AuthContext);

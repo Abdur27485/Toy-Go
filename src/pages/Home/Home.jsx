@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import Banner from '../../components/Banner';
+import Banner from '../../components/Home/Banner';
 import { AuthContext } from '../../providers/AuthProvider';
-import Gallery from '../../components/Gallery';
-import CategoryTabs from '../../components/CategoryTabs';
+import Gallery from '../../components/Home/Gallery';
+import CategoryTabs from '../../components/Home/CategoryTabs';
+import Testimonials from '../../components/Home/Testimonials';
 
 const Home = () => {
     const {changeTitle} = useContext(AuthContext);
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <Gallery></Gallery>
             <CategoryTabs></CategoryTabs>
+            <Testimonials></Testimonials>
         </div>
     );
 };

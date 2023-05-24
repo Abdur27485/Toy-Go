@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../providers/AuthProvider';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Gallery = () => {
     // const [gallerCardData, setGalleryCardData] = useState(null);
