@@ -11,7 +11,6 @@ const Home = () => {
     changeTitle('Home')
     return (
         <div>
-                                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
             <Banner></Banner>
             <Gallery></Gallery>
             <CategoryTabs></CategoryTabs>
