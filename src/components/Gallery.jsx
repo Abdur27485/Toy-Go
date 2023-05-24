@@ -26,7 +26,7 @@ const Gallery = () => {
                                 <a href="#" class="relative block group">
                                     <img
                                         src={toyPictureUrl}
-                                        class="bg-slate-100 pb-28 pt-5 h-[350px] lg:h-[450px] w-full object-cover transition duration-75 lg:group-hover:scale-105"
+                                        class="bg-slate-100 pb-28 pt-5 h-[350px] lg:h-[450px] w-full object-cover transition duration-500 lg:group-hover:scale-105"
                                     />
                                     <div class="absolute bottom-0 w-full px-6 py-3 bg-slate-100">
                                         <h3 class="text-2xl font-medium">{toyName}</h3>
