@@ -21,17 +21,17 @@ const Navbar = () => {
 
     return (
         <header aria-label="Site Header" className="border-b border-gray-100">
-            <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8">
+            <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-3 lg:px-8">
                 <div className="flex items-center gap-4">
 
-                    <button type="button" className="p-2 lg:hidden">
+                    {/* <button type="button" className="p-2 lg:hidden"> */}
                         {/* hamburger icon here */}
-                    </button>
+                    {/* </button> */}
 
                     {/* LOGO */}
-                    <a href="#" className="flex">
-                        <img src="https://i.ibb.co/cQjF00T/logo.png" className='w-28' alt="" />
-                    </a>
+                    <Link to='/' className="flex">
+                        <img src="https://i.ibb.co/cQjF00T/logo.png" className='w-20' alt="" />
+                    </Link>
                 </div>
 
                 <div className="flex flex-1 items-center justify-end gap-8">
@@ -60,8 +60,8 @@ const Navbar = () => {
                     </nav>
 
                     <div className="flex items-center">
-                        <div className="flex items-center px-4 border-x border-gray-100">
-                            <span className="border-e border-e-gray-100 flex items-center">
+                        <div className="flex items-center lg:px-4 lg:border-x lg:border-gray-100">
+                            <span className="lg:border-e lg:border-e-gray-100 flex items-center">
                                 {
                                     user ?
                                         <>
@@ -71,7 +71,7 @@ const Navbar = () => {
                                             <button className='btn ml-4' onClick={handleLogOut}>Log Out</button>
                                         </>
                                         :
-                                        <Link to='/login' className="grid h-16 w-24 place-content-center border-b-4 border-transparent hover:border-red-700">
+                                        <Link to='/login' className="grid lg:h-16 lg:w-24 place-content-center border-b-4 border-transparent hover:border-red-700">
                                             <span className='flex items-center gap-1'>
                                                 Login
                                                 <FiLogIn />
