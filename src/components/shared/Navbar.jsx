@@ -30,7 +30,7 @@ const Navbar = () => {
 
                     {/* LOGO */}
                     <Link to='/' className="flex">
-                        <img src="https://i.ibb.co/cQjF00T/logo.png" className='w-20' alt="" />
+                        <img src="https://i.ibb.co/cQjF00T/logo.png" className='w-20 lg:w-28' alt="" />
                     </Link>
                 </div>
 
