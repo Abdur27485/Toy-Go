@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='mt-[30px]'>
             <footer aria-label="Site Footer" class="bg-white">
                 <div
                     class="px-4 py-16 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8"
