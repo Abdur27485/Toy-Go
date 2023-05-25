@@ -24,7 +24,7 @@ const Testimonials = () => {
                             testimonials?.map(testimonial => {
                                 const { review, rating, customerName, customerImg } = testimonial;
                                 return (
-                                    <blockquote class=" flex flex-col max-w-sm rounded-lg bg-gray-100 p-8">
+                                    <blockquote class="mx-3 lg:mx-0 flex flex-col max-w-sm rounded-lg bg-gray-100 p-8">
                                         <div class="flex items-center gap-4">
                                             <img
                                                 alt="Man"
