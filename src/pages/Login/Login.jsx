@@ -45,7 +45,7 @@ const Login = () => {
             })
     }
     return (
-        <div className='lg:w-9/12 mx-auto shadow-2xl mt-8'>
+        <div className='lg:w-9/12 mx-auto shadow-2xl lg:mt-8'>
             <section className="bg-white">
                 <div className="lg:grid lg:grid-cols-12">
                     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
@@ -54,12 +54,6 @@ const Login = () => {
                             src="https://puregaming.es/wp-content/uploads/2021/02/Hot-Wheels-Unleashed.jpg.webp"
                             className="absolute inset-0 h-full w-full object-cover"
                         />
-
-                        <div className="hidden lg:relative lg:block lg:p-12">
-                            <a className="block text-white" href="/">
-                                {/* logo here */}
-                            </a>
-                        </div>
                     </section>
 
                     <main
@@ -69,27 +63,18 @@ const Login = () => {
                         <div className="max-w-xl lg:max-w-3xl">
                             <h1 className='text-4xl font-bold text-center'>Login</h1>
                             <div className="relative -mt-16 block lg:hidden">
-                                <a
-                                    className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
-                                    href="/"
-                                >
-                                    {/* logo here */}
-                                </a>
-
                                 <h1
-                                    className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
+                                    className="hidden lg:block mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
                                 >
                                     Welcome to ToyGo
                                 </h1>
 
-                                <p className="mt-4 leading-relaxed text-gray-500">
+                                <p className="mt-4 hidden lg:block leading-relaxed text-gray-500">
                                     We have a wide variety of toy cars for kids of all ages, from classic cars to modern sports cars. Whether your child is a car enthusiast or just loves to play, we have the perfect toy car for them.
                                 </p>
-
-                                <h1 className='text-2xl font-bold text-center mt-5'>Register</h1>
                             </div>
 
-                            <form onSubmit={handleLogin} className="mt-8 grid grid-cols-6 gap-6">
+                            <form onSubmit={handleLogin} className="mt-20 lg:mt-20 grid grid-cols-6 gap-6">
 
                                 <div className="col-span-6">
                                     <label htmlFor="Email" className="block text-sm font-medium text-gray-700">

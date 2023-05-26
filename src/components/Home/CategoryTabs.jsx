@@ -4,7 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const CategoryTabs = () => {
-    const { allToys } = useContext(AuthContext);
+    const { allToys, user } = useContext(AuthContext);
 
     return (
         <div className='mt-[130px] px-3 lg:px-8'>
@@ -23,24 +23,24 @@ const CategoryTabs = () => {
                     <div className='carousel carousel-center w-full lg:w-full gap-3'>
                         {
                             allToys?.filter(toy => toy.subCategory === 'Sports Car').map(toy => {
-                                const { toyName, toyPictureUrl, price } = toy;
+                                const { toyName, toyPictureUrl, price, _id } = toy;
                                 return (
                                     <div className="carousel-item bg-slate-100">
-                                        <div class="group relative block overflow-hidden">
+                                        <div className="group relative block overflow-hidden">
 
                                             <img
                                                 src={toyPictureUrl}
                                                 alt=""
-                                                class="h-[150px] w-[224px] lg:h-64 lg:w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                                                className="h-[150px] w-[224px] lg:h-64 lg:w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
                                             />
 
-                                            <div class="relative border border-gray-100 bg-slate-100 p-6 pt-0">
-                                                <h3 class="mt-4 text-lg font-medium text-gray-900">{toyName}</h3>
+                                            <div className="relative border border-gray-100 bg-slate-100 p-6 pt-0">
+                                                <h3 className="mt-4 text-lg font-medium text-gray-900">{toyName}</h3>
 
-                                                <p class="mt-1.5 text-sm text-gray-700">${price}</p>
+                                                <p className="mt-1.5 text-sm text-gray-700">${price}</p>
 
-                                                <form class="mt-4">
-                                                    <button class="block w-full rounded bg-yellow-400 px-4 py-2 lg:p-4 text-sm font-medium transition hover:scale-105">
+                                                <form className="mt-4">
+                                                    <button className="block w-full rounded bg-yellow-400 px-4 py-2 lg:p-4 text-sm font-medium transition hover:scale-105">
                                                         View Details
                                                     </button>
                                                 </form>
