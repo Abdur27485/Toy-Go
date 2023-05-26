@@ -55,7 +55,7 @@ const CategoryTabs = () => {
                 <TabPanel>
                     <div className='carousel carousel-center w-full lg:w-full gap-3'>
                         {
-                            allToys?.filter(toy => toy.subCategory === 'Sports Car').map(toy => {
+                            allToys?.filter(toy => toy.subCategory === 'Construction Toy').map(toy => {
                                 const { toyName, toyPictureUrl, price, _id } = toy;
                                 return (
                                     <div className="carousel-item bg-slate-100">
@@ -88,7 +88,7 @@ const CategoryTabs = () => {
                 <TabPanel>
                     <div className='carousel carousel-center w-full lg:w-full gap-3'>
                         {
-                            allToys?.filter(toy => toy.subCategory === 'Sports Car').map(toy => {
+                            allToys?.filter(toy => toy.subCategory === 'Monster Truck').map(toy => {
                                 const { toyName, toyPictureUrl, price, _id } = toy;
                                 return (
                                     <div className="carousel-item bg-slate-100">
