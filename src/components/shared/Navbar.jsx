@@ -23,20 +23,6 @@ const Navbar = () => {
         <header aria-label="Site Header" className="border-b border-gray-100">
             <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-3 lg:px-8">
                 <div className="flex items-center gap-4">
-
-                    <div className="dropdown">
-                        <label tabIndex={0} className="">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><Link to='/'>Home</Link></li>
-                                <li><Link to='/allToy'>All Toys</Link></li>
-                                <li><Link to='/myToy'>My Toys</Link></li>
-                                <li><Link to='/addToy'>Add Toy</Link></li>
-                                <li><Link to=''>Blogs</Link></li>
-                        </ul>
-                    </div>
-
                     {/* LOGO */}
                     <Link to='/' className="flex">
                         <img src="https://i.ibb.co/cQjF00T/logo.png" className='w-20 lg:w-28' alt="" />
@@ -69,7 +55,7 @@ const Navbar = () => {
                     </nav>
 
                     <div className="flex items-center">
-                        <div className="flex items-center lg:px-4 lg:border-x lg:border-gray-100">
+                        <div className="hidden lg:flex items-center lg:px-4 lg:border-x lg:border-gray-100">
                             <span className="lg:border-e lg:border-e-gray-100 flex items-center">
                                 {
                                     user ?
@@ -91,6 +77,41 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
+                {/* mobile dropdown navigation */}
+                <div className="dropdown lg:hidden">
+                        <label tabIndex={0} className="">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                        </label>
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li className='border-b'>
+                                <div className="flex items-center lg:px-4 lg:border-x lg:border-gray-100">
+                                    <span className="lg:border-e lg:border-e-gray-100 flex items-center">
+                                        {
+                                            user ?
+                                                <div className='flex justify-between items-center'>
+                                                    <div className='tooltip tooltip-left rounded-full' data-tip={user.displayName}>
+                                                        <img src={user?.photoURL} className=' w-14 rounded-full' />
+                                                    </div>
+                                                    <button className='bg-primary text-white rounded-md px-3 py-2 ml-4' onClick={handleLogOut}>Log Out</button>
+                                                </div>
+                                                :
+                                                <Link to='/login'>
+                                                    <span className='flex items-center gap-1'>
+                                                        Login
+                                                        <FiLogIn />
+                                                    </span>
+                                                </Link>
+                                        }
+                                    </span>
+                                </div>
+                            </li>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/allToy'>All Toys</Link></li>
+                            <li><Link to='/myToy'>My Toys</Link></li>
+                            <li><Link to='/addToy'>Add Toy</Link></li>
+                            <li><Link to=''>Blogs</Link></li>
+                        </ul>
+                    </div>
             </div>
         </header>
     );
