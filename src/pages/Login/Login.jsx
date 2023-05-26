@@ -58,7 +58,7 @@ const Login = () => {
 
                     <main
                         aria-label="Main"
-                        className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
+                        className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6 mb-16 lg:mb-0"
                     >
                         <div className="max-w-xl lg:max-w-3xl">
                             <h1 className='text-4xl font-bold text-center'>Login</h1>
