@@ -80,31 +80,10 @@ const Register = () => {
 
                     <main
                         aria-label="Main"
-                        className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-10 lg:py-12 xl:col-span-6"
+                        className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-10 lg:py-12 xl:col-span-6 mb-16"
                     >
                         <div className="max-w-xl lg:max-w-3xl">
                             <h1 className='text-4xl font-bold text-center'>Register</h1>
-                            <div className="relative -mt-16 block lg:hidden">
-                                <a
-                                    className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
-                                    href="/"
-                                >
-                                    {/* logo here */}
-                                </a>
-
-                                <h1
-                                    className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
-                                >
-                                    Welcome to ToyGo
-                                </h1>
-
-                                <p className="mt-4 leading-relaxed text-gray-500">
-                                    We have a wide variety of toy cars for kids of all ages, from classic cars to modern sports cars. Whether your child is a car enthusiast or just loves to play, we have the perfect toy car for them.
-                                </p>
-
-                                <h1 className='text-2xl font-bold text-center'>Register</h1>
-                            </div>
-
                             <form onSubmit={handleRegister} className="mt-8 grid grid-cols-6 gap-6">
                                 <div className="col-span-6 sm:col-span-3">
                                     <label
@@ -232,7 +211,7 @@ const Register = () => {
                                 <div className='flex justify-center w-1/2 mx-auto'>
                                     <button 
                                     onClick={handleGoogleSignIn}
-                                    className='flex items-center gap-7 shrink-0 rounded-md border border-blue-600 px-12 py-3 font-medium text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring active:text-blue-500 text-xl'>
+                                    className='flex items-center gap-7 shrink-0 rounded-md border border-blue-600 px-8 lg:px-12 py-3 font-medium text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring active:text-blue-500 text-xl'>
                                         <span className='text-3xl'>
                                         <FcGoogle />
                                         </span>
