@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Login = () => {
+    const navigate = useNavigate()
     const { changeTitle } = useContext(AuthContext);
     changeTitle('Login')
     const { loginUser, googleSignIn } = useContext(AuthContext);
@@ -13,6 +14,9 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         googleSignIn()
+        .then(result => {
+        navigate('/')
+        })
     }
 
     const handleLogin = event => {
@@ -34,6 +38,7 @@ const Login = () => {
                     'You have successfully Logged in',
                     'success'
                 )
+                navigate('/')
             })
             .catch(error => {
                 if (error.message === 'Firebase: Error (auth/wrong-password).') {

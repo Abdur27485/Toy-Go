@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {FcGoogle} from 'react-icons/fc'
 
 const Register = () => {
+    const navigate = useNavigate()
     const {changeTitle} = useContext(AuthContext);
     changeTitle('Register')
     const { createUser, setUser, updateUser, googleSignIn } = useContext(AuthContext);
@@ -11,6 +12,9 @@ const Register = () => {
 
     const handleGoogleSignIn = () =>{
         googleSignIn()
+        .then(result =>{
+            navigate('/')
+        })
     }
 
     const handleRegister = event => {
@@ -49,6 +53,7 @@ const Register = () => {
             updateUser(displayName, photoURL)
             .then(() =>{
                 console.log('profile updated')
+                navigate('/')
             })
         })
     }
