@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
-import {AuthContext} from '../../providers/AuthProvider';
+import { AuthContext } from '../../providers/AuthProvider';
 import Login from '../../pages/Login/Login'
-const PrivateRoute = ({children}) => {
-    const {user} = useContext(AuthContext);
+const PrivateRoute = ({ children }) => {
+    const { user, loading } = useContext(AuthContext);
+    if (loading) {
+        return;
+    }
 
-    if(user){
-        return(
+    if (user) {
+        return (
             children
         )
     } else {
-        return(
+        return (
             <Login></Login>
         )
     }

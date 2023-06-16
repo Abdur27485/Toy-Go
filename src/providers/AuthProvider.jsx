@@ -8,21 +8,26 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true)
 
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     };
 
     const loginUser = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     };
 
     const updateUser = (displayName, photoURL) => {
+        setLoading(true)
         return updateProfile(auth.currentUser, { displayName, photoURL });
     };
 
     const googleSignIn = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
             .then(result => {
                 Swal.fire(
@@ -57,12 +62,14 @@ const AuthProvider = ({ children }) => {
         updateUser,
         googleSignIn,
         changeTitle,
+        loading
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             console.log('AuthState changed!', currentUser)
+            setLoading(false)
         })
 
         return () => {
