@@ -47,7 +47,7 @@ const AuthProvider = ({ children }) => {
     //loading allToys data
     const [allToys, setAllToys] = useState(null);
     useEffect(() => {
-        fetch('https://assignment-11-server-production-8607.up.railway.app/toy')
+        fetch('https://toygo-server.vercel.app/toy')
             .then(res => res.json())
             .then(data => setAllToys(data))
     }, [])

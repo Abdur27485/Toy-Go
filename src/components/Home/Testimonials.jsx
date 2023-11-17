@@ -5,7 +5,7 @@ const Testimonials = () => {
     const [testimonials, setTestimonials] = useState(null);
 
     useEffect(() => {
-        fetch('https://assignment-11-server-production-8607.up.railway.app/testimonials')
+        fetch('https://toygo-server.vercel.app/testimonials')
             .then(res => res.json())
             .then(data => setTestimonials(data))
     }, [])

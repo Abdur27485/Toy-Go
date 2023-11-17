@@ -10,7 +10,7 @@ const MyToy = () => {
     const formSpan = 'absolute start-3 top-3 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs';
 
     useEffect(() => {
-        fetch(`https://assignment-11-server-production-8607.up.railway.app/myToys/${user?.email}`)
+        fetch(`https://toygo-server.vercel.app/myToys/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [user])
@@ -24,7 +24,7 @@ const MyToy = () => {
         const updatedData = { price, availableQuantity, description };
         console.log(updatedData, id)
 
-        fetch(`https://assignment-11-server-production-8607.up.railway.app/toy/${id}`, {
+        fetch(`https://toygo-server.vercel.app/toy/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ const MyToy = () => {
     }
 
     const handleDelete = id =>{
-        fetch(`https://assignment-11-server-production-8607.up.railway.app/toy/${id}`,{
+        fetch(`https://toygo-server.vercel.app/toy/${id}`,{
             method: 'delete'
         })
         .then( res => res.json())

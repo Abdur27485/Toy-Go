@@ -29,7 +29,7 @@ const AddToy = () => {
         }
         console.log(newToyData)
 
-        fetch('https://assignment-11-server-production-8607.up.railway.app/toy', {
+        fetch('https://toygo-server.vercel.app/toy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

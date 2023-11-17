@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Gallery = () => {
-    // const [gallerCardData, setGalleryCardData] = useState(null);
+    const [gallerCardData, setGalleryCardData] = useState(null);
 
-    // useEffect(() => {
-    //     fetch('https://assignment-11-server-production-8607.up.railway.app/toy')
-    //         .then(res => res.json())
-    //         .then(data => setGalleryCardData(data.slice(7, 13)))
-    // }, [])
+    useEffect(() => {
+        fetch('https://toygo-server.vercel.app/toy')
+            .then(res => res.json())
+            .then(data => setGalleryCardData(data.slice(7, 13)))
+    }, [])
     const {allToys} = useContext(AuthContext);
     return (
         <div className='lg:px-8'>

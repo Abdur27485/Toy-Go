@@ -4,7 +4,7 @@ const ToysBlogs = () => {
     const [blogs, setBlogs] = useState(null);
 
     useEffect(() => {
-        fetch('https://assignment-11-server-production-8607.up.railway.app/blogs')
+        fetch('https://toygo-server.vercel.app/blogs')
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, [])
