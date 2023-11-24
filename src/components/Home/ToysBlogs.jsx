@@ -4,7 +4,7 @@ const ToysBlogs = () => {
     const [blogs, setBlogs] = useState(null);
 
     useEffect(() => {
-        fetch('https://toygo-server.vercel.app/blogs')
+        fetch('https://toygo-server.cyclic.app/blogs')
             .then(res => res.json())
             .then(data => setBlogs(data))
     }, [])

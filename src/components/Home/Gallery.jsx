@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Gallery = () => {
-    const [gallerCardData, setGalleryCardData] = useState(null);
+    // const [gallerCardData, setGalleryCardData] = useState(null);
 
-    useEffect(() => {
-        fetch('https://toygo-server.vercel.app/toy')
-            .then(res => res.json())
-            .then(data => setGalleryCardData(data.slice(7, 13)))
-    }, [])
+    // useEffect(() => {
+    //     fetch('https://toygo-server.cyclic.app//toy')
+    //         .then(res => res.json())
+    //         .then(data => setGalleryCardData(data.slice(1, 7)))
+    // }, [])
     const {allToys} = useContext(AuthContext);
     return (
         <div className='lg:px-8'>
@@ -19,7 +19,7 @@ const Gallery = () => {
             <p className='lg:text-xl mt-2 pl-3 pr-3'>We have a wide selection of toys to choose from, so you're sure to find something your child will love</p>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-y-3 lg:gap-8 mt-10'>
                 {
-                    allToys?.slice(7,13)?.map(galleryData => {
+                    allToys?.slice(1,7)?.map(galleryData => {
                         const { toyPictureUrl, toyName, price } = galleryData;
                         return (
                             <div className='overflow-hidden rounded mx-2 lg:mx-0'>

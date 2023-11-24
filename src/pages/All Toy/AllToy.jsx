@@ -8,7 +8,7 @@ const AllToy = () => {
     const [allToys, setAllToys] = useState(null);
 
     useEffect(() => {
-        fetch('https://toygo-server.vercel.app/toy')
+        fetch('https://toygo-server.cyclic.app/toy')
             .then(res => res.json())
             .then(data => setAllToys(data))
     }, [])

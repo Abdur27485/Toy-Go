@@ -29,7 +29,7 @@ const AddToy = () => {
         }
         console.log(newToyData)
 
-        fetch('https://toygo-server.vercel.app/toy', {
+        fetch('https://toygo-server.cyclic.app/toy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
